@@ -23,11 +23,20 @@ const QuizGame = () => {
     }));
     updatedGame.quizes = quizes;
     updatedGame.currentQuizIndex = quizes.length > 0 ? 0 : -1;
+
+    // TODO: Remove below currentQuizIndex assignment
+    const lastValidQuestion = AllQuizes.findIndex(
+      quiz => quiz.question === "Question?"
+    );
+    updatedGame.currentQuizIndex = lastValidQuestion - 1;
+
     setGame(updatedGame);
   }, []);
 
   const handleSelectChoice = choiceIndex => {
-    if (game.quizes[game.currentQuizIndex].selections.indexOf(choiceIndex) > -1) {
+    if (
+      game.quizes[game.currentQuizIndex].selections.indexOf(choiceIndex) > -1
+    ) {
       return;
     }
     const updatedGame = {
@@ -40,7 +49,10 @@ const QuizGame = () => {
               selections:
                 quiz.answers.length < 2
                   ? [choiceIndex]
-                  : [...quiz.selections, choiceIndex]
+                  : [
+                      ...quiz.selections.slice(-1 * (quiz.answers.length - 1)),
+                      choiceIndex
+                    ]
             }
           : quiz
       )
@@ -48,11 +60,19 @@ const QuizGame = () => {
     setGame(updatedGame);
   };
 
+  const handlePrev = () => {
+    setGame({ ...game, currentQuizIndex: game.currentQuizIndex - 1 });
+  };
+
+  const handleNext = () => {
+    setGame({ ...game, currentQuizIndex: game.currentQuizIndex + 1 });
+  };
+
   const handleSubmitAnswer = () => {
     const currentQuiz = game.quizes[game.currentQuizIndex];
     const isPass =
-      currentQuiz.answers.sort().join(",") ===
-      currentQuiz.selections.sort().join(",");
+      [...currentQuiz.answers].sort().join(",") ===
+      [...currentQuiz.selections].sort().join(",");
     const updatedGame = {
       ...game,
       quizes: game.quizes.map((quiz, quizIndex) =>
@@ -80,11 +100,30 @@ const QuizGame = () => {
             quiz={game.quizes[game.currentQuizIndex]}
             onSelect={handleSelectChoice}
           />
-          <div class="btn-container">
-            <button disabled={game.currentQuizIndex < 1}>Prev</button>
-            <button onClick={handleSubmitAnswer}>Submit</button>
-            <button disabled={game.currentQuizIndex > game.quizes.length - 1}>
-              Next
+          <div className="btn-container">
+            <button
+              className="secondary"
+              disabled={game.currentQuizIndex < 1}
+              onClick={handlePrev}
+            >
+              &lt; Prev
+            </button>
+            <button
+              className="primary"
+              disabled={
+                game.quizes[game.currentQuizIndex].selections.length !==
+                game.quizes[game.currentQuizIndex].answers.length
+              }
+              onClick={handleSubmitAnswer}
+            >
+              Submit
+            </button>
+            <button
+              className="secondary"
+              disabled={game.currentQuizIndex >= game.quizes.length - 1}
+              onClick={handleNext}
+            >
+              Next &gt;
             </button>
           </div>
         </div>

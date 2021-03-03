@@ -45,8 +45,16 @@
   width: 2rem;
 }
 
-.choice-label {
+.choice-text {
   flex: 1;
+}
+
+.tag-label {
+  font-size: 12px;
+}
+.tag-text {
+  font-size: 12px;
+  color: gray;
 }
 
 .help-label {

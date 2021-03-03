@@ -19,10 +19,10 @@ const Quiz = ({ quiz, onSelect }) => {
               containerClasses.push("selected");
             }
             if (quiz.isPass !== undefined) {
-              if (quiz.selections.indexOf(choiceIndex) > -1) {
-                containerClasses.push(quiz.isPass ? "success" : "error");
-              } else if (quiz.answers.indexOf(choiceIndex) > -1) {
+              if (quiz.answers.indexOf(choiceIndex) > -1) {
                 containerClasses.push("success");
+              } else if (quiz.selections.indexOf(choiceIndex) > -1) {
+                containerClasses.push("error");
               }
             }
 
@@ -33,15 +33,25 @@ const Quiz = ({ quiz, onSelect }) => {
                 onClick={() => onSelect(choiceIndex)}
               >
                 <div className="choice-serial">{Alphabets[choiceIndex]}</div>
-                <div className="choice-label">{choice.label}</div>
+                <div className="choice-text">{choice.text}</div>
               </div>
             );
           })}
         </div>
-        <div className="help-container">
-          <div className="help-label">Explanation</div>
-          <div className="help-text">{quiz.help}</div>
+        <div className="tags-container">
+          <span className="tag-label">Tags: </span>
+          {quiz.tags.map(tag => (
+            <span key={tag} className="tag-text">
+              #{tag}{" "}
+            </span>
+          ))}
         </div>
+        {quiz.isPass !== undefined && (
+          <div className="help-container">
+            <div className="help-label">Explanation</div>
+            <div className="help-text">{quiz.help}</div>
+          </div>
+        )}
       </div>
     </div>
   );

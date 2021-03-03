@@ -464,104 +464,106 @@ const AllQuizes = [
     tags: ["aws", "storage", "cache"]
   },
   {
-    question: "Question?",
+    question: "What will happen if a user deletes an S3 object where versioning is enabled?",
     choices: [
       {
-        text: "Choice"
+        text: "S3 will insert a delete marker and all the versions will remain in the bucket."
       },
       {
-        text: "Choice"
+        text: "S3 will delete the last copy of the object, while the others remain intact."
       },
       {
-        text: "Choice"
+        text: "S3 will delete all the versions of that object."
       },
       {
-        text: "Choice"
+        text: "S3 will reset the version ID of the bucket and insert a delete marker that all the versions are deleted."
       }
     ],
-    answers: [3],
-    help: "No Help",
+    answers: [0],
+    help: "When a user deletes an object for which versioning is enabled, S3 will set the delete marker against that object version. Consequently, all the versions will remain in the S3 bucket. The delete marker becomes the latest version. Thus, the next GET request without a version ID will be unable to retrieve the object.",
+    tags: ["aws", "storage", "s3", "bucket"]
+  },
+  {
+    question: "A user wants to enable access logging on an S3 bucket in your AWS account, to track requests to access it.  Which steps are required to set up access logging for your bucket?",
+    choices: [
+      {
+        text: "Create an IAM Role granting write permission on the destination bucket for log storage."
+      },
+      {
+        text: "Turn on the bucket's log delivery by adding logging configuration to the bucket."
+      },
+      {
+        text: "Grant the Amazon S3 Log Delivery group write permission on the destination bucket for log storage."
+      },
+      {
+        text: "Create an IAM policy for the bucket and allow log access."
+      }
+    ],
+    answers: [1,2],
+    help: "By default, logging is disabled. To enable access logging, you must do the following:\
+    - Turn on the log delivery by adding logging configuration on the bucket for which you want Amazon S3 to deliver access logs. We will refer to this bucket as the source bucket.\
+    - Grant the Amazon S3 Log Delivery group write permission on the bucket where you want the access logs saved. We will refer to this bucket as the target bucket.",
     tags: ["aws", "storage"]
   },
   {
-    question: "Question?",
+    question: "In which circumstance would a bucket owner pay for the data transfers instead of the Requester Pays bucket?",
     choices: [
       {
-        text: "Choice"
+        text: "When the request is a HTTP request"
       },
       {
-        text: "Choice"
+        text: "When the request is a known request"
       },
       {
-        text: "Choice"
+        text: "When the request is 202 Accepted"
       },
       {
-        text: "Choice"
+        text: "When the request is anonymous"
       }
     ],
     answers: [3],
-    help: "No Help",
-    tags: ["aws", "storage"]
+    help: "The charge for successful Requester Pays requests is straightforward: the requester pays for the data transfer and the request; the bucket owner pays for the data storage. However, the bucket owner is charged for the anonymous request.",
+    tags: ["aws", "storage", "s3", "bucket"]
   },
   {
-    question: "Question?",
+    question: "You are developing a new application in which you need to transfer files over long distances between client-side storage and an S3 bucket. You decide to try sending data to the S3 bucket using S3 Transfer Acceleration. What must you do to achieve this?",
     choices: [
       {
-        text: "Choice"
+        text: "Use the CLI S3 accelerate upload commands."
       },
       {
-        text: "Choice"
+        text: "Use the SDK S3 accelerate upload commands."
       },
       {
-        text: "Choice"
+        text: "Use the new accelerate endpoints to transfer your data to S3."
       },
       {
-        text: "Choice"
+        text: "Turn on S3 Transfer Acceleration for the bucket."
       }
     ],
-    answers: [3],
-    help: "No Help",
-    tags: ["aws", "storage"]
+    answers: [2,3],
+    help: "After you turn on S3 Transfer Acceleration for a bucket, two new endpoints are created for the bucket: one for IPv4 and one for IPv6. You can use either the accelerate endpoints or the standard endpoints if you choose not to use the accelerate feature.",
+    tags: ["aws", "storage", "s3", "bucket"]
   },
   {
-    question: "Question?",
+    question: "By default, versioning is ____________ when an S3 bucket is created.",
     choices: [
       {
-        text: "Choice"
+        text: "enabled for buckets in the US East (N. Virginia) region"
       },
       {
-        text: "Choice"
+        text: "disabled only for the region where the user is located."
       },
       {
-        text: "Choice"
+        text: "enabled for buckets in all regions"
       },
       {
-        text: "Choice"
+        text: "disabled for buckets in all regions"
       }
     ],
     answers: [3],
-    help: "No Help",
-    tags: ["aws", "storage"]
-  },
-  {
-    question: "Question?",
-    choices: [
-      {
-        text: "Choice"
-      },
-      {
-        text: "Choice"
-      },
-      {
-        text: "Choice"
-      },
-      {
-        text: "Choice"
-      }
-    ],
-    answers: [3],
-    help: "No Help",
-    tags: ["aws", "storage"]
+    help: "A user can enable versioning with AWS S3 only at the bucket level. Versioning is disabled by default when a bucket is created.",
+    tags: ["aws", "storage", "s3", "bucket"]
   },
   {
     question: "Question?",

@@ -1,11 +1,13 @@
 import React from "react";
+import QuizGame from "./pages/quiz-game";
+
 import "./style.css";
 
 export default function App() {
   return (
     <div>
-      <h1>Hello StackBlitz!</h1>
-      <p>Start editing to see some magic happen :)</p>
+      <h1 className="app-header">Quiz Mania!</h1>
+      <QuizGame />
     </div>
   );
 }

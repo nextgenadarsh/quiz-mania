@@ -26,7 +26,7 @@ const QuizGame = () => {
 
     // TODO: Remove below currentQuizIndex assignment
     const lastValidQuestion = AllQuizes.findIndex(
-      quiz => quiz.question === "Question?"
+      quiz => quiz.question === "Question"
     );
     updatedGame.currentQuizIndex = lastValidQuestion - 1;
 

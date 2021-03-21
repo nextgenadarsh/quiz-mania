@@ -1199,7 +1199,7 @@ const AllQuizes = [
     question: "What is a Lambda function?",
     choices: [
       {
-        text: "Compiled code that AWS Lambda runs when invoked
+        text: "Compiled code that AWS Lambda runs when invoked"
       },
       {
         text: "An AWS service which Lambda monitors for specific operations"
@@ -1278,7 +1278,7 @@ const AllQuizes = [
     tags: ["aws", "compute"]
   },
   {
-    question: "What statement describes the correct relationship between ECR components?,
+    question: "What statement describes the correct relationship between ECR components?",
     choices: [
       {
         text: "An ECR registry contains multiple repositories, which contain multiple Docker images."

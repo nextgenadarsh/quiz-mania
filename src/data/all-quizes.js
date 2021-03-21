@@ -3386,6 +3386,656 @@ const AllQuizes = [
     tags: ["aws", "database", "secret"]
   },
   {
+    question: "Which Amazon RDS storage option does AWS provide only to support backward compatibility?",
+    choices: [
+      {
+        text: "Provisioned IOPS (SSD)"
+      },
+      {
+        text: "Shared Cluster"
+      },
+      {
+        text: "Magnetic"
+      },
+      {
+        text: "General Purpose SSD"
+      }
+    ],
+    answers: [2],
+    help: "Shared Cluster storage is available only for Amazon Aurora. General Purpose SSD is a good option for a wide range of use \
+    cases. Provisioned IOPS is ideal for workloads that require a high I/O. Magnetic storage is only recommended to support backward \
+    compatibility.",
+    tags: ["aws", "database", "pricing"]
+  },
+  {
+    question: "Which of the following statements regarding Amazon RDS instance pricing is incorrect?",
+    choices: [
+      {
+        text: "Each Oracle BYOL license discount applies to all Oracle DB instance types and sizes"
+      },
+      {
+        text: "Large instances cost more than small instances"
+      },
+      {
+        text: "Single-AZ configurations costs less than Multi-AZ configurations"
+      },
+      {
+        text: "On-Demand instances cost more per hour than Reserved instances"
+      }
+    ],
+    answers: [0],
+    help: "Before you decide to use a BYOL license instance you need to ensure that your current license includes software update \
+    license and support for the particular instance that you are looking to create.\
+    Also with BYOL for Oracle you have additional editions for deployment.  This means that BYOL supports the following Oracle Editions:\
+    Standard Edition\
+    Standard Edition One (SE1)\
+    Standard Edition Two (SE2)\
+    Enterprise Edition\
+    As you are only paying for the compute instances when using BYOL, there is no variation in prices between the different editions of Oracle being used.",
+    tags: ["aws", "database", "pricing"]
+  },
+  {
+    question: "Which Amazon RDS Database Engine supports the serverless purchasing option?",
+    choices: [
+      {
+        text: "PostgreSQL"
+      },
+      {
+        text: "MySQL"
+      },
+      {
+        text: "Amazon Aurora"
+      },
+      {
+        text: "SQL Server"
+      }
+    ],
+    answers: [2],
+    help: "The different payment options within RDS include on-demand instances, on-demand instances (BYOL), reserved instances, reserved instances (BYOL), and serverless.\
+    Currently, only the Oracle database engine uses the BYOL purchase options, all other DB engines only use on-demand instances and \
+    reserved instances, with the added exception of Aurora also using serverless as an additional purchasing option. ",
+    tags: ["aws", "database", "pricing"]
+  },
+  {
+    question: "Does increasing your backup retention period for database snapshots or taking additional database snapshots always increase your storage costs due to the backup storage consumed by your database?",
+    choices: [
+      {
+        text: "Yes"
+      },
+      {
+        text: "Only when the total GB of database snapshots is more than than the total GBs of active RDS databases combined on the account."
+      },
+      {
+        text: "There is only a charge for increasing your backup retention period to longer than 90 days."
+      },
+      {
+        text: "No"
+      }
+    ],
+    answers: [1],
+    help: "Increasing your backup retention period or taking additional database snapshots increases the backup storage space consumed \
+    by your database, thus incurring additional charges.",
+    tags: ["aws", "database", "pricing"]
+  },
+  {
+    question: "Which Amazon RDS DB engine uses the BYOL DB instance purchase option?",
+    choices: [
+      {
+        text: "Amazon Aurora"
+      },
+      {
+        text: "Oracle"
+      },
+      {
+        text: "MySQL"
+      },
+      {
+        text: "PostgreSQL"
+      }
+    ],
+    answers: [1],
+    help: "The different payment options within RDS include on-demand instances, on-demand instances (BYOL), reserved instances, \
+    reserved instances (BYOL), and serverless.\
+    Currently, only the Oracle database engine uses the BYOL purchase options, all other DB engines only use on-demand instances and reserved instances, with the added exception of Aurora also using serverless as an additional purchasing option.",
+    tags: ["aws", "database", "pricing"]
+  },
+  {
+    question: "If your VPN device supports Border Gateway Protocol (BGP), you should specify ______ when you configure your VPN connection.",
+    choices: [
+      {
+        text: "the customer gateway"
+      },
+      {
+        text: "the virtual private gateway"
+      },
+      {
+        text: "static routing"
+      },
+      {
+        text: "dynamic routing"
+      }
+    ],
+    answers: [3],
+    help: "BGP allows inter-domain routes to happen over the Internet. If your customer gateway supports BGP, you should specify \
+    dynamic routing when configuring your VPN connection. If, instead, your VPN appliance does not support this protocol, static \
+    routing will be the right configuration for you.",
+    tags: ["aws", "database", "vpc", "network"]
+  },
+  {
+    question: "Network ACLs in VPCs have separate inbound and outbound rules; each rule can ______ traffic.",
+    choices: [
+      {
+        text: "block"
+      },
+      {
+        text: "only allow"
+      },
+      {
+        text: "only deny"
+      },
+      {
+        text: "either allow or deny"
+      }
+    ],
+    answers: [3],
+    help: "A network ACL has separate inbound and outbound rules, and each rule can either allow or deny traffic.",
+    tags: ["aws", "database", "vpc", "network"]
+  },
+  {
+    question: "A user has created a VPC with two subnets: one public and one private. The user is planning to run the patch update for the instances in the private subnet. How can the instances in the private subnet connect to the internet?",
+    choices: [
+      {
+        text: "Use the internet gateway with a private IP"
+      },
+      {
+        text: "Use a NAT Gateway with an elastic IP"
+      },
+      {
+        text: "The private subnet can never connect to the internet"
+      },
+      {
+        text: "Allow outbound traffic in the security group for port 80 to allow internet updates"
+      }
+    ],
+    answers: [1],
+    help: "A Virtual Private Cloud (VPC) is a virtual network dedicated to the user’s AWS account. A user can create a subnet with VPC \
+    and launch instances inside that subnet. If the user has created two subnets (one private and one public), they would need a \
+    Network Address Translation (NAT) gateway with the elastic IP address. This enables the instances in the private subnet to send \
+    requests to the internet (for example, to perform software updates).",
+    tags: ["aws", "database", "vpc", "network"]
+  },
+  {
+    question: "When specifying a CIDR block address for your VPC, what is the range of netmasks allowed?",
+    choices: [
+      {
+        text: "From a /8 netmask to a /30 netmask"
+      },
+      {
+        text: "From a /20 netmask to a /28 netmask"
+      },
+      {
+        text: "From a /16 netmask to a /28 netmask"
+      },
+      {
+        text: "From a /16 netmask to a /24 netmask"
+      }
+    ],
+    answers: [2],
+    help: "When creating a CIDR block address range, you can select a netmask from /16 to /28, which offers roughly as many as 65,000 \
+    assignable IP address within a VPC to as few as 16.",
+    tags: ["aws", "database", "vpc", "network"]
+  },
+  {
+    question: "If your VPN device does not support BGP, specify ______.",
+    choices: [
+      {
+        text: "static routing"
+      },
+      {
+        text: "a customer gateway"
+      },
+      {
+        text: "a virtual private gateway"
+      },
+      {
+        text: "dynamic routing"
+      }
+    ],
+    answers: [0],
+    help: "When you create a VPN connection, you must specify the type of routing that you plan to use, and update the route table for \
+    your subnet. The type of routing that you select can depend on the make and model of your VPN devices. If your VPN device supports \
+    Border Gateway Protocol (BGP), specify dynamic routing when you configure your VPN connection. If your device does not support BGP, \
+    specify static routing.",
+    tags: ["aws", "database", "vpc", "network"]
+  },
+  {
+    question: "For each subnet in a VPC, five IP addresses are not assignable. AWS retains these IP addresses for specific reasons, including which of the following choices? (Choose 3 answers)",
+    choices: [
+      {
+        text: "AWS routing"
+      },
+      {
+        text: "AWS DNS"
+      },
+      {
+        text: "Future use"
+      },
+      {
+        text: "Security monitoring"
+      }
+    ],
+    answers: [0,1,2],
+    help: "In addition to the network and broadcast address of the subnet which can't be used for host addresses, AWS reserves the \
+    first three host IP addresses of each subnet for internal AWS usage.",
+    tags: ["aws", "database", "vpc", "network"]
+  },
+  {
+    question: "Within a VPC, what function does an internet gateway serve?",
+    choices: [
+      {
+        text: "To provide a target for route tables to direct Internet traffic"
+      },
+      {
+        text: "To connect with AWS services such as Amazon"
+      },
+      {
+        text: "To allow or restrict external traffic from entering the subnet based on a series of rules"
+      },
+      {
+        text: "To serve as an anchor on the customer side of a VPN connection to a VPC"
+      }
+    ],
+    answers: [0],
+    help: "This Internet gateway is a managed service, controlled, configured, and maintained by AWS. It scales horizontally automatically and is classified as a highly valuable component of your VPC infrastructure.\
+    The other choices describe the purposes for a public IP address, a network ACL, and a customer gateway.",
+    tags: ["aws", "database", "vpc", "network"]
+  },
+  {
+    question: "Within a VPC public subnet, what function does public IP address provide?",
+    choices: [
+      {
+        text: "To provide a target for route tables to send traffic from the Internet"
+      },
+      {
+        text: "To allow communication with external resources via the Internet"
+      },
+      {
+        text: "To allow or restrict external traffic from entering the subnet based on a series of rules"
+      },
+      {
+        text: "To serve as an anchor on the customer side of a VPN connection to a VPC"
+      }
+    ],
+    answers: [1],
+    help: "A public IP address is essentially the location for any external messages to reach resources in your VPC subnet. Without \
+    it, external resources would not know how to reach you. The other choices are the services provided by internet gateways, network \
+    ACLs, and customer gateways.",
+    tags: ["aws", "database", "vpc", "network"]
+  },
+  {
+    question: "Which CIDR block netmask can you assign to an Amazon VPC to provide the largest number of assignable IP addresses?",
+    choices: [
+      {
+        text: "/8"
+      },
+      {
+        text: "/16"
+      },
+      {
+        text: "/28"
+      },
+      {
+        text: "/32"
+      }
+    ],
+    answers: [1],
+    help: "The largest option Amazon VPC provides, in terms of the number of assignable IP addresses, is a /16 netmask.",
+    tags: ["aws", "database", "vpc", "network"]
+  },
+  {
+    question: "You have a VPC with a private subnet and a public subnet. How can instances in private subnet access the Internet?",
+    choices: [
+      {
+        text: "By using a user-defined API call to the proxy server of the public subnet"
+      },
+      {
+        text: "By using a network address translation (NAT) gateway"
+      },
+      {
+        text: "By configuring NACL for the private subnet, and security groups for the instances within the private subnet, to allow traffic to and from the instances in the public subnet."
+      },
+      {
+        text: "Through AWS Direct Connect"
+      }
+    ],
+    answers: [1],
+    help: "The instances in the public subnet can receive inbound traffic directly from the Internet, whereas the instances in the \
+    private subnet can't. The instances in the public subnet can send outbound traffic directly to the Internet, whereas the instances \
+    in the private subnet can't. Instead, the instances in the private subnet can access the Internet by using a network address \
+    translation (NAT) gateway that resides in the public subnet.",
+    tags: ["aws", "database", "vpc", "network"]
+  },
+  {
+    question: "Which choice is a VPN component that serves as an AWS-managed VPC endpoint within the VPN connection?",
+    choices: [
+      {
+        text: "virtual private gateway"
+      },
+      {
+        text: "customer gateway"
+      },
+      {
+        text: "internet gateway"
+      },
+      {
+        text: "NAT gateway"
+      }
+    ],
+    answers: [0],
+    help: "The virtual private gateway is the VPN endpoint located within a VPC. It operates in a similar way to an internet gateway, and is AWS managed.",
+    tags: ["aws", "database", "vpc", "network"]
+  },
+  {
+    question: "Within AWS, what is an accurate description of a Virtual Private Cloud (VPC)?",
+    choices: [
+      {
+        text: "An AWS user's separate network segment within the AWS cloud"
+      },
+      {
+        text: "An AWS user's connection between two remote networks via the public internet"
+      },
+      {
+        text: "An AWS user's connection between two remote networks via private AWS infrastructure"
+      },
+      {
+        text: "an isolated segment of an AWS network that cannot receive inbound traffic from the internet"
+      }
+    ],
+    answers: [0],
+    help: "A Virtual Private Cloud can be described as an AWS user's network segment of the AWS cloud. The other statements describe a \
+    virtual private network connection, a connection via AWS Direct Connect, and a private subnet within a VPC.",
+    tags: ["aws", "database", "vpc", "network"]
+  },
+  {
+    question: "If you want an additional layer of security within your VPC to allow or deny traffic at the subnet level, configure rules for your ______ .",
+    choices: [
+      {
+        text: "network access control list (NACL)"
+      },
+      {
+        text: "subnet group"
+      },
+      {
+        text: "web application firewall (WAF)"
+      },
+      {
+        text: "security group"
+      }
+    ],
+    answers: [0],
+    help: "Network ACLs or Access Control Lists allow you to further enhance the security of your VPC, providing you a way to control \
+    both the outgoing and incoming traffic of your subnets.",
+    tags: ["aws", "database", "vpc", "network"]
+  },
+  {
+    question: "A route table can be assigned to ____________ subnet(s). A subnet can be assigned to ____________ route table(s).",
+    choices: [
+      {
+        text: "one; one"
+      },
+      {
+        text: "multiple; one"
+      },
+      {
+        text: "multiple; multiple"
+      },
+      {
+        text: "one; multiple"
+      }
+    ],
+    answers: [1],
+    help: "Every subnet has an associated route table, either implicitly or explicitly. A route table can be assigned to multiple \
+    subnets, but each subnet can only associated with one route table.",
+    tags: ["aws", "database", "vpc", "network"]
+  },
+  {
+    question: "Which statements regarding VPC subnets are correct? (Choose 2 answers)",
+    choices: [
+      {
+        text: "A route to an internet gateway means the subnet is public."
+      },
+      {
+        text: "A route to a virtual private gateway means that the subnet is public."
+      },
+      {
+        text: "A route to a NAT instance indicates VPN communication with on-premises servers."
+      },
+      {
+        text: "No route to an internet gateway or virtual private gateway indicates a private subnet."
+      }
+    ],
+    answers: [0,3],
+    help: "Your VPC has an implicit router and a main route table that you can modify. Each subnet you create must be associated with \
+    a route table. Adding an internet gateway and adding a route to that IGW facilitates traffic out to the Internet for a public \
+    subnet. NAT instance and NAT gateways are provided to allow instances in private subnets to gain internet access. ",
+    tags: ["aws", "database", "vpc", "network"]
+  },
+  {
+    question: "You want to implement SSH forwarding to access EC2 instances. What descriptions of SSH agent forwarding are correct? (Choose 2 answers)",
+    choices: [
+      {
+        text: "You use it to access instances through a bastion host."
+      },
+      {
+        text: "It allows you to access private keys stored on the bastion host."
+      },
+      {
+        text: "It stores EC2 private keys on the local client."
+      },
+      {
+        text: "You use it to access instances through a virtual private gateway."
+      }
+    ],
+    answers: [0,2],
+    help: "SSH agent forwarding is a process that allows you to access private instances through a bastion host without storing the \
+    private key within the bastion host, which could be a security risk. Instead, through SSH agent forwarding you store the private \
+    keys on your local machine.",
+    tags: ["aws", "database", "vpc", "network"]
+  },
+  {
+    question: "All statements regarding VPC peering connections below are correct except:",
+    choices: [
+      {
+        text: "You can configure a peering connection between VPCs in separate regions."
+      },
+      {
+        text: "Peering connections are established using virtual private networks (VPN)."
+      },
+      {
+        text: "Peering connections establish a one-to-one connection only."
+      },
+      {
+        text: "Peering connections are not possible between VPCs with an IP address overlap."
+      }
+    ],
+    answers: [1],
+    help: "VPC peering connects two separate VPCs, either in the same region or different regions. That connection is a one-to-one \
+    connection only, and cannot be established between VPCs with an IP address overlap. The connected is made over AWS infrastructure, \
+    not through a Direct Connect co-location or a virtual private network (VPN). This offers high availability, and avoids a bandwidth \
+    bottleneck.",
+    tags: ["aws", "database", "vpc", "network"]
+  },
+  {
+    question: "A(n) ______ in a VPC contains a set of rules that are used to determine where network traffic is directed.",
+    choices: [
+      {
+        text: "route table"
+      },
+      {
+        text: "security group"
+      },
+      {
+        text: "network access control list"
+      },
+      {
+        text: "internet gateway"
+      }
+    ],
+    answers: [0],
+    help: "A route table contains a set of rules, called routes, that are used to determine where network traffic is directed. Every subnet in your VPC must be associated with a route table.\
+    Security groups and network access control lists contain rules regarding where network traffic is allowed, not where it is directed.",
+    tags: ["aws", "database", "vpc", "network"]
+  },
+  {
+    question: "Each subnet in your VPC must be associated with a _______________ that directs traffic inbound and outbound traffic for the subnet's resources.",
+    choices: [
+      {
+        text: "route table"
+      },
+      {
+        text: "router"
+      },
+      {
+        text: "switch"
+      },
+      {
+        text: "gateway table"
+      }
+    ],
+    answers: [0],
+    help: "Every subnet in your VPC must be associated with a route table. If no explicit association between a subnet and a route table is provided, an implicit relation with the main route table is created.\
+    Such a table is provided by default when you create a VPC and can be easily updated as well as replaced by other custom route tables.",
+    tags: ["aws", "database", "vpc", "network"]
+  },
+  {
+    question: "Which statement regarding security groups is incorrect?",
+    choices: [
+      {
+        text: "They operate at the instance level."
+      },
+      {
+        text: "They support allow and deny rules for inbound and outbound traffic."
+      },
+      {
+        text: "They evaluate all rules before deciding whether to allow traffic."
+      },
+      {
+        text: "They can be added or removed from EC2-VPC instances at any time."
+      }
+    ],
+    answers: [1],
+    help: "Amazon VPC provides two features that you can use to increase security for your VPC:\
+    Security groups—Act as a firewall for associated Amazon EC2 instances, controlling both inbound and outbound traffic at the instance level and supports allow rules only.\
+    Network access control lists (ACLs)—Act as a firewall for associated subnets, controlling both inbound and outbound traffic at the subnet level and supports allow rules and deny rules.",
+    tags: ["aws", "database", "vpc", "network"]
+  },
+  {
+    question: "Which CIDR block netmask can you assign to an Amazon VPC to provide the smallest number of assignable IP addresses?",
+    choices: [
+      {
+        text: "/8"
+      },
+      {
+        text: "/16"
+      },
+      {
+        text: "/28"
+      },
+      {
+        text: "/32"
+      }
+    ],
+    answers: [2],
+    help: "The smallest option Amazon VPC provides, in terms of the number of assignable IP addresses, is a /28 netmask, which \
+    creates 16 address. Taking into account the 5 that AWS uses, this actually creates 11 assignable addresses.",
+    tags: ["aws", "database", "vpc", "network"]
+  },
+  {
+    question: "Which step in configuring a bastion host is not required, and could potentially compromise your network security?",
+    choices: [
+      {
+        text: "Create a bastion host instance in a public subnet"
+      },
+      {
+        text: "Allow inbound SSH from a specific IP address in the bastion host security group"
+      },
+      {
+        text: "Harden the EC2 instance"
+      },
+      {
+        text: "Allow inbound SSH on port 80 in the bastion host security group"
+      }
+    ],
+    answers: [3],
+    help: "All of the steps are correct except for the port configuration, which is mentioned specifically in the configuration steps \
+    for a bastion host. Remember, HTTP traffic can be allowed over port 80 in a security group or NACL, but SSH traffic needs to be \
+    allowed on port 22.",
+    tags: ["aws", "database", "vpc", "network"]
+  },
+  {
+    question: "What does a local route within a route table enable?",
+    choices: [
+      {
+        text: "It enables communication between VPC subnets."
+      },
+      {
+        text: "It enables communication only within each VPC subnet, not between subnets."
+      },
+      {
+        text: "It enables communication between a VPC and external public IP addresses."
+      },
+      {
+        text: "It enables an administrator to SSH directly into any VPC resource."
+      }
+    ],
+    answers: [0],
+    help: "A route table is included in the VPCs default route table, and all custom route tables. It cannot be deleted, and allows \
+    communication between VPC subnets.",
+    tags: ["aws", "database", "vpc", "network"]
+  },
+  {
+    question: "You want to configure a VPN connection for an Amazon VPC. Which of the following steps is required?",
+    choices: [
+      {
+        text: "Configure an internet gateway and attach it to the VPC."
+      },
+      {
+        text: "Configure a virtual private gateway within your on-premise network."
+      },
+      {
+        text: "Configure a NAT gateway and attach it to a subnet within the VPC."
+      },
+      {
+        text: "Configure a customer gateway within your on-premise network."
+      }
+    ],
+    answers: [3],
+    help: "If you wish to use Amazon VPC with a VPN connection, you or your network administrator must designate a physical appliance \
+    or software as your customer gateway and configure it. ",
+    tags: ["aws", "database", "vpc", "network"]
+  },
+  {
+    question: "What type of resources can AWS Direct Connect communicate with through a private virtual interface?",
+    choices: [
+      {
+        text: "Only resources within a VPC"
+      },
+      {
+        text: "Only regional services"
+      },
+      {
+        text: "Only resources within an on-premises data center"
+      },
+      {
+        text: "Both regional services and resources within an on-premises data center"
+      }
+    ],
+    answers: [0],
+    help: "You can use a private virtual interface in AWS Direct Connect to establish a secure, private connection outside of the \
+    public internet between an on-premises data center and a VPC.",
+    tags: ["aws", "database", "vpc", "network"]
+  },
+  {
     question: "Question",
     choices: [
       {
@@ -3403,7 +4053,7 @@ const AllQuizes = [
     ],
     answers: [],
     help: "Help",
-    tags: ["aws", "database", "secret"]
+    tags: ["aws", "database", "vpc", "network"]
   },
 ];
 

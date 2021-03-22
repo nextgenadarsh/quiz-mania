@@ -1199,7 +1199,7 @@ const AllQuizes = [
     question: "What is a Lambda function?",
     choices: [
       {
-        text: "Compiled code that AWS Lambda runs when invoked
+        text: "Compiled code that AWS Lambda runs when invoked"
       },
       {
         text: "An AWS service which Lambda monitors for specific operations"
